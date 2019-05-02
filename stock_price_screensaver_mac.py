@@ -10,7 +10,7 @@ from selenium.webdriver.support import expected_conditions as EC1
 from selenium.webdriver.common.by import By
 
 # download from https://sites.google.com/a/chromium.org/chromedriver/downloads
-driver = webdriver.Chrome('/Users/luisgomez/Downloads/chromedriver') # change as per your location
+driver = webdriver.Chrome('/{}/Downloads/chromedriver'.format(Path.home())) # change as per your location
 driver.get("https://in.tradingview.com/chart/?symbol=WK")
 
 driver.maximize_window()
@@ -34,4 +34,4 @@ for d in desktops:
 
 
 # remove file
-# os.remove(fname)
+os.remove(fname)
