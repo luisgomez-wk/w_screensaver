@@ -34,4 +34,4 @@ for d in desktops:
 
 
 # remove file
-os.remove(fname)
+# os.remove(fname)
