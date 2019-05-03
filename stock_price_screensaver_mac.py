@@ -9,6 +9,15 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC1
 from selenium.webdriver.common.by import By
 
+# selenium saves the file here
+fname = '{}/Downloads/download.png'.format(Path.home())
+
+# remove old screenshot file
+try:
+    os.remove(fname)
+except:
+    print('no old screensaver found. moving on :)')
+
 # download from https://sites.google.com/a/chromium.org/chromedriver/downloads
 driver = webdriver.Chrome('/{}/Downloads/chromedriver'.format(Path.home())) # change as per your location
 driver.get("https://in.tradingview.com/chart/?symbol=WK")
@@ -22,9 +31,6 @@ element.click()
 time.sleep(3)
 driver.close()
 
-# selenium saves the file here
-fname = '{}/Downloads/download.png'.format(Path.home())
-
 # set screensaver
 se = app('System Events')
 desktops = se.desktops.display_name.get()
@@ -33,5 +39,3 @@ for d in desktops:
     desk.picture.set(mactypes.File(fname))
 
 
-# remove file
-# os.remove(fname)
